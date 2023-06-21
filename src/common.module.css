@@ -1,0 +1,42 @@
+.content {
+    text-align: center; 
+}
+
+.title {
+    color: #E0992C;
+}
+
+.button {
+    background-color: #E0992C;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.button:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 2px 2px #E0992C;
+    color: #E0992C;
+    cursor: pointer;
+}
+
+.additionalTitle, .text{
+    color: #895D3C;
+}
+
+@media(min-width: 648px) {
+    .content {
+        margin: 40px;
+    }
+
+    .title {
+        font-size: 42px;
+    }
+
+    .button {
+        font-size: 15px;
+        width: 120px;
+    }
+}

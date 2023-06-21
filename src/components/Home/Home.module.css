@@ -1,36 +1,18 @@
-.home {
-    text-align: center;
-    
-}
-
-h1{
-    color: #E0992C;
-}
-
-button {
-    background-color: #E0992C;
+.luckyButton {
     border: none;
     border-radius: 7px;
     color: #fff;
     font-weight: 600;
     padding: 10px;
-}
-
-button:hover {
-    background-color: #fff;
-    box-shadow: 0px 0px 2px 2px #E0992C;
-    color: #E0992C;
-    cursor: pointer;
-}
-
-.luckyButton {
     background-color: #ff0081;
     margin: 30px 0px;
     width: 50%;
 }
 
 .luckyButton:hover {
+    background-color: #fff;
     color: #ff0081;
+    cursor: pointer;
     box-shadow: 0px 0px 2px 2px #ff0081;
 }
 
@@ -42,29 +24,11 @@ button:hover {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%);
 }
 
-h3, p{
-    color: #895D3C;
-}
-
 @media(min-width: 448px) {
     .quizzeContainer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 2rem;
-    }
-}
-@media(min-width: 648px) {
-    .home {
-        margin: 40px;
-    }
-
-    h1 {
-        font-size: 42px;
-    }
-
-    button {
-        font-size: 15px;
-        width: 120px;
     }
 }
 
