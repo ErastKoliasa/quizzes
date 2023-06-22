@@ -9,13 +9,20 @@ const Home = () => {
     const navigate = useNavigate();
 
     async function handleClickPlay(id, name){
-        await dispatch(getQuestionsData(id, name))
-        navigate('play')
+        await dispatch(getQuestionsData(id, name));
+        navigate('play');
     }
+
+    async function handleClickLucky() {
+        const randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)];
+        await dispatch(getQuestionsData(randomQuiz.id, randomQuiz.name));
+        navigate('play');
+    }
+
     return (
         <div className={common.content}>
             <h1 className={common.title}>QUIZZES</h1>
-            <button className={style.luckyButton}>I`m lucky</button>
+            <button onClick={handleClickLucky} className={style.luckyButton}>I`m lucky</button>
             <div className={style.quizzeContainer}>
                 {quizzes.map(quizz =>
                     <div key={quizz.id} className={style.quizzeItem}>
