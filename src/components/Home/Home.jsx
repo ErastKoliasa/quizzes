@@ -20,7 +20,7 @@ const Home = () => {
                 {quizzes.map(quizz =>
                     <div key={quizz.id} className={style.quizzeItem}>
                         <h3 className={common.additionalTitle}>{quizz.name}</h3>
-                        <p className={common.text}>Number of Questions: 10</p>
+                        <p className={common.text}>Number of Questions: 13</p>
                         <button onClick={() => handleClickPlay(quizz.id, quizz.name)} className={common.button}>Play</button>
                     </div>
                 )}
