@@ -40,11 +40,16 @@ const Play = () => {
         }
     }
 
+    const handleClickCancel = () => {
+        dispatch(setScore(0))
+        navigate("/")
+    }
+
     return (
         <div className={common.content}>
             <div className={style.header}>
                 <h1 className={common.title}>{category}</h1>
-                <Link className={style.buttonCancel} to="/">Cancel</Link>
+                <button onClick={handleClickCancel} className={style.buttonCancel}>Cancel</button>
             </div>
             <h3 className={`${common.additionalTitle} ${style.additionalTitle}`}>Question {questionIndex + 1}</h3>
             <p className={`${common.text} ${style.text}`}>{decode(questions.results[questionIndex].question)}</p>
