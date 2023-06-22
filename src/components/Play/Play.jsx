@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { setScore, setTotalTime } from '../../redux/action';
+import { decode } from 'html-entities';
 
 const getRandomNumber = max => Math.floor(Math.random() * Math.floor(max));
 
@@ -46,11 +47,11 @@ const Play = () => {
                 <Link className={style.buttonCancel} to="/">Cancel</Link>
             </div>
             <h3 className={`${common.additionalTitle} ${style.additionalTitle}`}>Question {questionIndex + 1}</h3>
-            <p className={`${common.text} ${style.text}`}>{questions.results[questionIndex].question}</p>
+            <p className={`${common.text} ${style.text}`}>{decode(questions.results[questionIndex].question)}</p>
             <ul className={style.answersContainer}>
                 {options.map((data, id) =>
                     <li key={id} className={style.answerItem}>
-                        <button onClick={handleClickAnswer} className={`${common.button} ${style.buttonAnswer}`}>{data}</button>
+                        <button onClick={handleClickAnswer} className={`${common.button} ${style.buttonAnswer}`}>{decode(data)}</button>
                     </li>
                 )}
             </ul>
