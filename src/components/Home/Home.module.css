@@ -1,3 +1,17 @@
+.statsButton {
+    background-color: #fff;
+    border: none;
+    text-decoration: underline;
+    color: #E0992C;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.statsButton:hover {
+    cursor: pointer;
+    color: #ff0081;
+}
+
 .luckyButton {
     border: none;
     border-radius: 7px;
@@ -30,6 +44,18 @@
         grid-template-columns: 1fr 1fr;
         grid-gap: 2rem;
     }
+
+    .headContainer {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+    }
+
+    .statsButton{
+        margin-left: 20px;
+    }
+
 }
 
 @media(min-width: 990px) {
