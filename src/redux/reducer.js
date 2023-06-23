@@ -44,8 +44,12 @@ const initialState = {
     questions: [],
     category: "",
     score: 0,
-    totalTime: 0,
+    totalTimeQuizz: 0,
     loading: false,
+    quizzesCompleted: 0,
+    totalNumberQuestions: 0,
+    totalTime: 0,
+    amountCorrectAnswer: 0,
 };
 
 export const showsReducer = (state = initialState, action) => {
@@ -66,15 +70,35 @@ export const showsReducer = (state = initialState, action) => {
                 ...state,
                 score: action.payload
             };
-        case "CHANGE_TOTAL_TIME":
+        case "CHANGE_TOTAL_TIME_QUIZZ":
             return {
                 ...state,
-                totalTime: action.payload
+                totalTimeQuizz: action.payload
             }
         case "CHANGE_LOADING":
             return {
                 ...state,
                 loading: true
+            }
+        case "CHANGE_QUIZZES_COMPLETED":
+            return {
+                ...state,
+                quizzesCompleted: action.payload
+            }
+        case "CHANGE_TOTAL_NUMBER_QUESTIONS":
+            return {
+                ...state,
+                totalNumberQuestions: action.payload
+            }
+        case "CHANGE_TOTAL_TIME":
+            return {
+                ...state,
+                totalTime: action.payload
+            }
+        case "CHANGE_AMOUNT_CORRECT_ANSWER":
+            return {
+                ...state,
+                amountCorrectAnswer: action.payload
             }
         default:
             return state;

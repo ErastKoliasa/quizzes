@@ -3,7 +3,7 @@ import common from '../../common.module.css'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { setScore, setTotalTime } from '../../redux/action';
+import { setAmountCorrectAnswer, setQuizzesCompleted, setScore, setTotalTime, setTotalTimeQuizz } from '../../redux/action';
 import { decode } from 'html-entities';
 
 const getRandomNumber = max => Math.floor(Math.random() * Math.floor(max));
@@ -12,10 +12,14 @@ const Play = () => {
     const navigate = useNavigate();
     const questions = useSelector(state => state.questions);
     const category = useSelector(state => state.category);
-    const score = useSelector(state => state.score)
+    const score = useSelector(state => state.score);
+    const quizzesCompleted = useSelector(state => state.quizzesCompleted);
+    const totalTime = useSelector(state => state.totalTime);
+    const amountCorrectAnswer = useSelector(state => state.amountCorrectAnswer);
     const [questionIndex, setQuestionIndex] = useState(0);
     const [options, setOptions] = useState([]);
-    const [time, setTime] = useState(Date.now())
+    const [time, setTime] = useState(Date.now());
+    const [correctAnswers, setCorrectAnswers] = useState(0)
     const dispatch = useDispatch();
     const currentQuestion = questions.results[questionIndex];
 
@@ -29,20 +33,24 @@ const Play = () => {
 
     const handleClickAnswer = (e) => {
         if(e.target.textContent === currentQuestion.correct_answer){
-            dispatch(setScore(score + 1))
+            setCorrectAnswers(correctAnswers + 1)
+            dispatch(setScore(score + 1));
         }
         if(questionIndex + 1 < questions.results.length){
             setQuestionIndex(questionIndex + 1)
         } else {
-            const totalTime = Math.floor((Date.now() - time) / 1000);
-            dispatch(setTotalTime(totalTime));
-            navigate("/finish")
+            const totalTimeQuizz = Math.floor((Date.now() - time) / 1000);
+            dispatch(setTotalTimeQuizz(totalTimeQuizz));
+            dispatch(setTotalTime(totalTime + totalTimeQuizz));
+            dispatch(setQuizzesCompleted(quizzesCompleted + 1));
+            dispatch(setAmountCorrectAnswer(amountCorrectAnswer + correctAnswers))
+            navigate("/finish");
         }
     }
 
     const handleClickCancel = () => {
-        dispatch(setScore(0))
-        navigate("/")
+        dispatch(setScore(0));
+        navigate("/");
     }
 
     return (

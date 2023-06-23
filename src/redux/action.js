@@ -13,12 +13,31 @@ export const setScore = (score) => ({
     payload: score
 });
 
-export const setTotalTime = (time) => ({
-    type: "CHANGE_TOTAL_TIME",
+export const setTotalTimeQuizz = (time) => ({
+    type: "CHANGE_TOTAL_TIME_QUIZZ",
     payload: time
 });
 
 export const setLoading = () => ({
     type: "CHANGE_LOADING",
+});
+
+export const setQuizzesCompleted = (quizz) => ({
+    type: "CHANGE_QUIZZES_COMPLETED",
+    payload: quizz
+});
+
+export const setTotalNumberQuestions = (questions) => ({
+    type: "CHANGE_TOTAL_NUMBER_QUESTIONS",
+    payload: questions
+});
+
+export const setTotalTime = (time) => ({
+    type: "CHANGE_TOTAL_TIME",
+    payload: time
+});
+export const setAmountCorrectAnswer = (answer) => ({
+    type: "CHANGE_AMOUNT_CORRECT_ANSWER",
+    payload: answer
 });
 
