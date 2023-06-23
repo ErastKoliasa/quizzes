@@ -18,3 +18,7 @@ export const setTotalTime = (time) => ({
     payload: time
 });
 
+export const setLoading = () => ({
+    type: "CHANGE_LOADING",
+});
+

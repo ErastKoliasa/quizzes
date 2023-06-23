@@ -45,6 +45,7 @@ const initialState = {
     category: "",
     score: 0,
     totalTime: 0,
+    loading: false,
 };
 
 export const showsReducer = (state = initialState, action) => {
@@ -58,6 +59,7 @@ export const showsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 category: action.payload,
+                loading: false
             }; 
         case "CHANGE_SCORE":
             return {
@@ -68,6 +70,11 @@ export const showsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 totalTime: action.payload
+            }
+        case "CHANGE_LOADING":
+            return {
+                ...state,
+                loading: true
             }
         default:
             return state;

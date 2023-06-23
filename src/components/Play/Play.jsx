@@ -1,6 +1,6 @@
 import style from './Play.module.css'
 import common from '../../common.module.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { setScore, setTotalTime } from '../../redux/action';
